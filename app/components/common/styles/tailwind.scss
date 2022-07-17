@@ -1,0 +1,254 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+:root {
+  --primary: #eaba4c;
+  --primary-light: #eaba4c;
+  --primary-dark: #d4a944;
+  --secondary: #1e1e2d;
+  --secondary-light: #1e1e2d;
+}
+
+.box {
+  @apply px-4 py-3 mb-8 bg-white rounded-lg shadow-md;
+}
+
+.btn-primary {
+  @apply disabled:!bg-gray-300 disabled:cursor-default overflow-hidden relative outline-none focus:outline-none bg-primary shadow-lg rounded-md px-1 md:px-5 w-full py-0 md:py-2 cursor-pointer m-0.5 hover:bg-primary-dark whitespace-nowrap text-sm md:text-base;
+  &.submitting {
+    @apply text-gray-400 hover:bg-primary cursor-default;
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+      );
+      animation: shimmer 3s infinite;
+      content: "";
+    }
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.exchange-table {
+  @apply w-full whitespace-nowrap;
+  thead {
+    tr {
+      @apply text-xs font-semibold tracking-wide text-gray-500 uppercase border-b bg-gray-50;
+      th {
+        @apply px-4 py-3 md:text-base;
+      }
+    }
+  }
+  tbody {
+    @apply bg-white divide-y;
+    tr {
+      @apply text-gray-700;
+      td {
+        @apply px-4 py-3;
+        .exchange-table-btns-container {
+          @apply flex items-center flex-wrap;
+          .exchange-table-btn {
+            @apply bg-[#EABA4C] border border-[#707070] rounded-md px-1 md:px-3 py-0 md:py-0.5 cursor-pointer m-0.5 hover:bg-[#d4a944] whitespace-nowrap text-sm md:text-base;
+          }
+        }
+      }
+    }
+  }
+}
+
+input.form-input {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1.5 m-0;
+}
+
+.edit-btn {
+  @apply cursor-pointer;
+  svg {
+    @apply fill-[#EABA4C] w-7 h-7;
+  }
+}
+
+.page-title-container {
+  @apply flex items-center mb-5;
+  .page-title {
+    @apply font-semibold text-xl;
+  }
+  a {
+    @apply ml-3 cursor-pointer text-sm;
+  }
+}
+
+.customer-tabs-table {
+  @apply w-full whitespace-nowrap;
+  thead {
+    tr {
+      @apply text-xs font-semibold tracking-wide text-gray-500 uppercase border-b bg-gray-50;
+      th {
+        @apply px-4 py-3 md:text-base;
+      }
+    }
+  }
+  tbody {
+    @apply bg-white divide-y;
+    tr {
+      @apply text-gray-700;
+      td {
+        @apply px-4 py-3;
+        .exchange-table-btns-container {
+          @apply flex items-center flex-wrap;
+          .exchange-table-btn {
+            @apply bg-[#EABA4C] border border-[#707070] rounded-md px-1 md:px-3 py-0 md:py-0.5 cursor-pointer m-0.5 hover:bg-[#d4a944] whitespace-nowrap text-sm md:text-base;
+          }
+        }
+      }
+    }
+  }
+}
+
+.table {
+  @apply w-full whitespace-nowrap;
+  thead {
+    tr {
+      @apply text-xs font-semibold tracking-wide text-gray-500 uppercase border-b bg-gray-50;
+      th {
+        @apply px-4 py-3 md:text-base;
+      }
+    }
+  }
+  tbody {
+    @apply bg-white divide-y;
+    tr {
+      @apply text-gray-700;
+      td {
+        @apply px-4 py-3;
+        .exchange-table-btns-container {
+          @apply flex items-center flex-wrap;
+          .exchange-table-btn {
+            @apply bg-[#EABA4C] border border-[#707070] rounded-md px-1 md:px-3 py-0 md:py-0.5 cursor-pointer m-0.5 hover:bg-[#d4a944] whitespace-nowrap text-sm md:text-base;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pagination-sell {
+  @apply w-full text-center;
+}
+.pagination {
+  @apply flex items-center justify-center;
+  .page-item {
+    a {
+      @apply w-8 h-8 rounded-full flex items-center justify-center text-white text-sm bg-primary m-1 hover:bg-primary-dark cursor-pointer;
+    }
+    &.disabled {
+      a {
+        @apply bg-gray-200 !cursor-default hover:bg-gray-200;
+      }
+    }
+  }
+  .active-item {
+    a {
+      @apply !bg-secondary !cursor-default hover:!bg-secondary;
+    }
+  }
+}
+
+.fiats-list-container {
+  @apply flex items-center px-10 justify-center mb-5 md:mb-2;
+  span {
+    @apply font-bold text-[#555555] whitespace-nowrap pr-4;
+  }
+  .fiats-list {
+    @apply flex items-center;
+    li {
+      @apply border-2 border-gray-50 shadow-lg rounded-md px-1 md:px-3 w-full py-0 md:py-2 cursor-pointer m-0.5 
+        hover:bg-yellow-50 hover:border-yellow-50 whitespace-nowrap text-sm md:text-base;
+
+      &.active {
+        @apply border-primary-light font-semibold;
+      }
+    }
+  }
+}
+
+.upload-container {
+  @apply relative overflow-hidden w-64 flex flex-col items-center bg-white rounded-lg shadow-lg tracking-wide border;
+  &:not(.has-value) {
+    @apply cursor-pointer px-4 py-6 justify-center;
+  }
+  &:hover:not(.has-value) {
+    @apply bg-primary text-white;
+    svg {
+      @apply text-white;
+    }
+  }
+  &.submitting {
+    @apply text-gray-400 hover:bg-primary cursor-default hover:bg-white;
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+      );
+      animation: shimmer 3s infinite;
+      content: "";
+    }
+  }
+}
+
+.order-form-container {
+  @apply w-full p-5;
+  .item {
+    @apply w-full flex items-center justify-between py-3;
+  }
+}
+
+.btn-edit {
+  @apply cursor-pointer;
+  svg {
+    @apply !text-green-500 hover:!text-gray-600 w-6 h-6 ml-2;
+  }
+}
+
+.btn-delete {
+  @apply cursor-pointer;
+  svg {
+    @apply !text-red-500 hover:!text-red-600 w-6 h-6 ml-2;
+  }
+}
+
+
+.shortcut-box {
+  @apply z-0 border bg-white rounded-lg shadow-md  flex flex-col items-center justify-center p-6 cursor-pointer hover:bg-gray-100;
+  img {
+    @apply w-12 text-gray-400;
+  }
+  span {
+    @apply font-semibold mt-2;
+  }
+}
