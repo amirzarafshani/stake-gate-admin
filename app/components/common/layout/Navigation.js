@@ -18,20 +18,22 @@ const Navigation = (props) => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   return (
     <div
-      className={`flex h-screen bg-gray-50 dark:bg-gray-900 ${isSideMenuOpen ? 'overflow-hidden' : ''
-        }`}
+      className={`flex h-screen bg-gray-50 dark:bg-gray-900 ${
+        isSideMenuOpen ? 'overflow-hidden' : ''
+      }`}
     >
       {/* Desktop sidebar */}
       <aside className="z-20 hidden w-64 overflow-y-auto bg-[#1E1E2D] dark:bg-gray-800 md:block flex-shrink-0">
         <div className="pb-4 text-[#ADACAC] ">
           <Link to="/dashboard" className="cursor-pointer">
-                <img src={logo} alt="" className="my-3 mx-3 h-full px-2 w-16" />
+            <img src={logo} alt="" className="my-3 mx-3 h-full px-2 w-16" />
           </Link>
 
           <ul className="mt-6">
             <li
-              className={`relative px-6 py-3 ${isActiveMenu('/dashboard') ? 'bg-primary text-secondary' : ''
-                }`}
+              className={`relative px-6 py-3 ${
+                isActiveMenu('/dashboard') ? 'bg-primary text-secondary' : ''
+              }`}
             >
               {/* <span
                 className="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
@@ -155,8 +157,9 @@ export const NavList = () => {
   return (
     <ul>
       <li
-        className={`relative px-6 py-3 ${isActiveMenu('/dashboard/plans') ? 'bg-primary text-secondary' : ''
-          }`}
+        className={`relative px-6 py-3 ${
+          isActiveMenu('/dashboard/plans') ? 'bg-primary text-secondary' : ''
+        }`}
       >
         <Link
           className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-white dark:hover:text-gray-200"
@@ -178,8 +181,11 @@ export const NavList = () => {
         </Link>
       </li>
       <li
-        className={`relative px-6 py-3 ${isActiveMenu('/dashboard/ReferralRates') ? 'bg-primary text-secondary' : ''
-          }`}
+        className={`relative px-6 py-3 ${
+          isActiveMenu('/dashboard/ReferralRates')
+            ? 'bg-primary text-secondary'
+            : ''
+        }`}
       >
         <Link
           className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-white dark:hover:text-gray-200"
@@ -201,8 +207,9 @@ export const NavList = () => {
         </Link>
       </li>
       <li
-        className={`relative px-6 py-3 ${isActiveMenu('/dashboard/assets') ? 'bg-primary text-secondary' : ''
-          }`}
+        className={`relative px-6 py-3 ${
+          isActiveMenu('/dashboard/assets') ? 'bg-primary text-secondary' : ''
+        }`}
       >
         <Link
           className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-white dark:hover:text-gray-200"
@@ -224,8 +231,9 @@ export const NavList = () => {
         </Link>
       </li>
       <li
-        className={`relative px-6 py-3 ${isActiveMenu('/dashboard/releases') ? 'bg-primary text-secondary' : ''
-          }`}
+        className={`relative px-6 py-3 ${
+          isActiveMenu('/dashboard/releases') ? 'bg-primary text-secondary' : ''
+        }`}
       >
         <Link
           className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-white dark:hover:text-gray-200"
@@ -247,8 +255,9 @@ export const NavList = () => {
         </Link>
       </li>
       <li
-        className={`relative px-6 py-3 ${isActiveMenu('/dashboard/users') ? 'bg-primary text-secondary' : ''
-          }`}
+        className={`relative px-6 py-3 ${
+          isActiveMenu('/dashboard/users') ? 'bg-primary text-secondary' : ''
+        }`}
       >
         <Link
           className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-white dark:hover:text-gray-200"
@@ -267,6 +276,30 @@ export const NavList = () => {
             <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
           </svg>
           <span className="ml-4">Users</span>
+        </Link>
+      </li>
+      <li
+        className={`relative px-6 py-3 ${
+          isActiveMenu('/dashboard/sliders') ? 'bg-primary text-secondary' : ''
+        }`}
+      >
+        <Link
+          className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-white dark:hover:text-gray-200"
+          to="/dashboard/sliders"
+        >
+          <svg
+            className="w-5 h-5"
+            aria-hidden="true"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          <span className="ml-4">Sliders</span>
         </Link>
       </li>
     </ul>

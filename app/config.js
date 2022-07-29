@@ -1,4 +1,4 @@
 export default {
-  authUrl: 'http://192.168.1.23:3000/',
-  apiUrl: 'http://192.168.1.23:3000/admin/'
+  rootUrl: 'http://206.189.49.113:3000/',
+  apiUrl: 'http://206.189.49.113:3000/admin/',
 };
