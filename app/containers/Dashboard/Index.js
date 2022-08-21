@@ -32,13 +32,13 @@ export default function Dashboard(props) {
     <React.Fragment>
       <div className="container mx-auto my-5 px-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Link to="/assets" className="shortcut-box">
+          <Link to="/dashboard/users" className="shortcut-box">
             <span>{`Total Users: ${data.user_count}`}</span>
           </Link>
-          <Link to="/releases" className="shortcut-box">
+          <Link to="/dashboard/assets" className="shortcut-box">
             <span>{`Pending Assets: ${data.asset_count}`}</span>
           </Link>
-          <Link to="/referrals" className="shortcut-box">
+          <Link to="/dashboard/releases" className="shortcut-box">
             <span>{`Pending Releases: ${data.release_count}`}</span>
           </Link>
         </div>

@@ -14,6 +14,7 @@ const authService = {
 
 function login(dto) {
   const url = `${rootUrl}${model}login`;
+  console.log(url);
   axios.interceptors.response.use(handleSuccess, handleError);
 
   let headers = { 'Content-Type': 'application/json; charset=utf-8' };

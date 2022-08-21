@@ -3,6 +3,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import Slide from '@material-ui/core/Slide';
 import EditForm from '../Forms/EditForm';
+import config from '../../../config';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -71,7 +72,55 @@ const AssetModal = React.memo((props) => {
               </div>
             </div>
             <div className="border-b border-gray-200 pb-5 my-5"></div>
-
+            <div className="my-2">
+              <label
+                htmlFor="amount"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Amount
+              </label>
+              <div
+                className={`mt-1 relative rounded-md shadow-sm border border-gray-200 bg-gray-100`}
+              >
+                <span className="block w-full py-3 pl-3 pr-3 sm:text-sm rounded-md focus:outline-none">
+                  {data.amount}
+                </span>
+              </div>
+            </div>
+            <div className="my-2">
+              <label
+                htmlFor="amount"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Transaction Id
+              </label>
+              <div
+                className={`mt-1 relative rounded-md shadow-sm border border-gray-200 bg-gray-100`}
+              >
+                <span className="block w-full py-3 pl-3 pr-3 sm:text-sm rounded-md focus:outline-none">
+                  {data.transaction_id}
+                </span>
+              </div>
+            </div>
+            {data?.image?.url && (
+              <div className="my-2">
+                <label
+                  htmlFor="amount"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Transaction Screenshot
+                </label>
+                <div
+                  className={`mt-1 relative rounded-md shadow-sm border border-gray-200`}
+                >
+                  <span className="block w-full py-3 pl-3 pr-3 sm:text-sm rounded-md focus:outline-none">
+                    <a href={`${config.rootUrl}${data?.image?.url}`} target="block">
+                      <img src={`${config.rootUrl}${data?.image?.url}`} className="h-52" />
+                    </a>
+                  </span>
+                </div>
+              </div>
+            )}
             <EditForm item={data} onSubmit={handleCloseAndReload} />
           </div>
         )}
