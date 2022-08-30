@@ -1,0 +1,67 @@
+{
+  "icons": [
+    {
+      "src": "/icon_180x180.6fb2b1e596991f103381e1681c91d7c0.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_167x167.decba98cae9b1ce0884d7079e5385ff2.png",
+      "sizes": "167x167",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_152x152.0850bec0a30afa13173ac74f01f2d918.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_120x120.bd6890f4ee666f253d30a959e221949b.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_512x512.b527c11d834b9a817ff31cc531873ab3.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_384x384.60863b89170206dfa13b505d5476c122.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_192x192.b2e33cee9b0c05510e592f556a065879.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_144x144.6052fe8291db6b64a8c7a7fe33aba220.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_128x128.32e72ca1c0e24e6e34d7d85778762cb9.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_96x96.89eb91defd0c0bbe55452504408494a7.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_72x72.e1088afb97eda672dee4d91c2c062cbe.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ],
+  "name": "My Stake Gate",
+  "short_name": "My Stake Gate",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "My My Stake Gate-based project!",
+  "background_color": "#fafafa",
+  "theme_color": "#000"
+}
