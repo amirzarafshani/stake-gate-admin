@@ -95,10 +95,20 @@ class Plans extends React.Component {
                     <tr>
                       <th className="text-left text-[#EABA4C]">#</th>
                       <th className=" text-[#EABA4C]">Name</th>
-                      <th className="text-[#EABA4C] ">Days</th>
+                      <th className="text-[#EABA4C] ">Min Amount</th>
+                      {/* <th className="text-[#EABA4C] text-center">
+                        Min Deposit
+                      </th> */}
+                      <th className="text-[#EABA4C] text-center">
+                        Min Referrals
+                      </th>
+                      <th className="text-[#EABA4C] text-center">
+                        Referral Rate
+                      </th>
                       <th className="text-[#EABA4C] text-center">Profit</th>
-                      <th className="text-[#EABA4C] text-center">Penalty</th>
-                      <th className="text-[#EABA4C] text-center">Plan Type</th>
+                      <th className="text-[#EABA4C] text-center">
+                        Active Assets
+                      </th>
                       <th className="flex items-center justify-end">Edit</th>
                     </tr>
                   </thead>
@@ -143,10 +153,12 @@ const PlanRow = (props) => {
     <tr>
       <td className="font-semibold">{index + 1}</td>
       <td className="text-center font-semibold">{item.name}</td>
-      <td className="text-center font-semibold">{item.days}</td>
+      <td className="text-center font-semibold">{item.min_amount}</td>
+      {/* <td className="text-center font-semibold">{item.min_deposit}</td> */}
+      <td className="text-center font-semibold">{item.min_referrals}</td>
+      <td className="text-center font-semibold">{item.referral_rate}</td>
       <td className="text-center font-semibold">{item.profit}</td>
-      <td className="text-center font-semibold">{item.penalty}</td>
-      <td className="text-center font-semibold">{item.plan_type}</td>
+      <td className="text-center font-semibold">{item.active_assets}</td>
 
       <td className="flex items-center justify-end">
         <a className="edit-btn" onClick={() => props.handleEdit(item.id)}>

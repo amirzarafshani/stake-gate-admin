@@ -180,7 +180,7 @@ export const NavList = () => {
           <span className="ml-4">Plans</span>
         </Link>
       </li>
-      <li
+      {/* <li
         className={`relative px-6 py-3 ${
           isActiveMenu('/dashboard/ReferralRates')
             ? 'bg-primary text-secondary'
@@ -205,7 +205,7 @@ export const NavList = () => {
           </svg>
           <span className="ml-4">Referral Rates</span>
         </Link>
-      </li>
+      </li> */}
       <li
         className={`relative px-6 py-3 ${
           isActiveMenu('/dashboard/assets') ? 'bg-primary text-secondary' : ''
@@ -278,7 +278,7 @@ export const NavList = () => {
           <span className="ml-4">Users</span>
         </Link>
       </li>
-      <li
+      {/* <li
         className={`relative px-6 py-3 ${
           isActiveMenu('/dashboard/sliders') ? 'bg-primary text-secondary' : ''
         }`}
@@ -301,7 +301,7 @@ export const NavList = () => {
           </svg>
           <span className="ml-4">Sliders</span>
         </Link>
-      </li>
+      </li> */}
     </ul>
   );
 };

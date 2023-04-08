@@ -11,10 +11,11 @@ import Step1 from './Step1';
 
 const data = {
   name: '',
-  days: '',
   profit: '',
-  penalty: '',
-  plan_type: '',
+  min_amount: '',
+  min_referrals: '',
+  // min_deposit: '',
+  referral_rate: '',
 };
 
 class EditForm extends Component {
@@ -117,10 +118,11 @@ class EditForm extends Component {
     const { data } = this.state;
     const ValidationSchema = Yup.object().shape({
       name: Yup.string().trim().nullable().required(' '),
-      days: Yup.string().trim().nullable().required(' '),
+      min_amount: Yup.string().trim().nullable().required(' '),
+      min_referrals: Yup.string().trim().nullable().required(' '),
+      // min_deposit: Yup.string().trim().nullable().required(' '),
+      referral_rate: Yup.string().trim().nullable().required(' '),
       profit: Yup.string().trim().nullable().required(' '),
-      penalty: Yup.string().trim().nullable().required(' '),
-      plan_type: Yup.string().trim().nullable().required(' '),
     });
     return (
       <Formik

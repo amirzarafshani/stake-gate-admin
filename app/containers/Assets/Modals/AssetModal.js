@@ -10,16 +10,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const AssetModal = React.memo((props) => {
-  const { onClose, onCloseAndReload } = props
+  const { onClose, onCloseAndReload } = props;
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({});
-
 
   useEffect(() => {
     if (props.open && props.data) {
       console.log(props.data);
       setData({ ...props.data });
-
     }
     setOpen(props.open);
     return () => {
@@ -28,8 +26,8 @@ const AssetModal = React.memo((props) => {
   }, [props.open, props.data]);
 
   const handleCloseModal = useCallback(() => {
-    onClose()
-  }, [])
+    onClose();
+  }, []);
 
   const handleCloseAndReload = useCallback(() => {
     onCloseAndReload();
@@ -45,31 +43,33 @@ const AssetModal = React.memo((props) => {
       onClose={handleCloseModal}
     >
       <DialogContent className="rtl right bg-gray-50 !p-10">
-
         {data && (
           <div className="flex flex-col">
             <div className="font-bold flex justify-between border-b pb-5 mb-5">
               <span>{`Plan: ${data.plan?.name}`}</span>
-              <span> {`Days: ${data.plan?.days}`}</span>
-              <span> {`Amount: ${data.amount}`}</span>
+              {/* <span> {`Days: ${data.plan?.days}`}</span> */}
+              {/* <span> {`Amount: ${data.amount}`}</span> */}
             </div>
             <div className="flex">
               <div className="w-1/2">
                 <div className="flex flex-col gap-5">
-                  <span>{`Profit: ${data.profit_rate}`}</span>
+                  <span>{`Amount: ${data.amount}`}</span>
+                  <span>{`Profit: ${data.calculated_profit}`}</span>
                   <span>{`Elapsed: ${data.elapsed}`}</span>
-                  <div className="divide-y-2 divide-gray-400"></div>
-                  <span>{`Total Profit: ${data.calculated_profit}`}</span>
+                  {/* <div className="divide-y-2 divide-gray-400"></div> */}
+                  <span>{`Total Withdrawable: ${
+                    data.amount + data.calculated_profit
+                  }`}</span>
                 </div>
               </div>
-              <div className="w-1/2">
+              {/* <div className="w-1/2">
                 <div className="flex flex-col gap-5">
                   <span>{`Penalty: ${data.plan?.penalty}`}</span>
                   <span>{`Remaining: ${data.remaining}`}</span>
                   <div className="divide-y-2 divide-blue-200"></div>
                   <span>{`Total Penalty: ${data.calculated_penalty}`}</span>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="border-b border-gray-200 pb-5 my-5"></div>
             <div className="my-2">
@@ -114,8 +114,14 @@ const AssetModal = React.memo((props) => {
                   className={`mt-1 relative rounded-md shadow-sm border border-gray-200`}
                 >
                   <span className="block w-full py-3 pl-3 pr-3 sm:text-sm rounded-md focus:outline-none">
-                    <a href={`${config.rootUrl}${data?.image?.url}`} target="block">
-                      <img src={`${config.rootUrl}${data?.image?.url}`} className="h-52" />
+                    <a
+                      href={`${config.rootUrl}${data?.image?.url}`}
+                      target="block"
+                    >
+                      <img
+                        src={`${config.rootUrl}${data?.image?.url}`}
+                        className="h-52"
+                      />
                     </a>
                   </span>
                 </div>
@@ -124,7 +130,6 @@ const AssetModal = React.memo((props) => {
             <EditForm item={data} onSubmit={handleCloseAndReload} />
           </div>
         )}
-
       </DialogContent>
     </Dialog>
   );

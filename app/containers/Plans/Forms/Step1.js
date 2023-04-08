@@ -17,10 +17,10 @@ export default ({
       <Input type="text" name="name" error={errors.name} />
     </div>
 
-    <div className="mb-4">
+    {/* <div className="mb-4">
       <label className="block text-sm">Days</label>
       <Input type="text" name="days" error={errors.days} />
-    </div>
+    </div> */}
 
     <div className="mb-4">
       <label className="block text-sm">Profit</label>
@@ -28,11 +28,31 @@ export default ({
     </div>
 
     <div className="mb-4">
-      <label className="block text-sm">Penalty</label>
-      <Input type="text" name="penalty" error={errors.penalty} />
+      <label className="block text-sm">Min Amount</label>
+      <Input type="text" name="min_amount" error={errors.min_amount} />
+    </div>
+
+    {/* <div className="mb-4">
+      <label className="block text-sm">Min Deposit</label>
+      <Input type="text" name="min_deposit" error={errors.min_deposit} />
+    </div> */}
+
+    <div className="mb-4">
+      <label className="block text-sm">Min Referrals</label>
+      <Input type="text" name="min_referrals" error={errors.min_referrals} />
     </div>
 
     <div className="mb-4">
+      <label className="block text-sm">Referral Rate</label>
+      <Input type="text" name="referral_rate" error={errors.referral_rate} />
+    </div>
+
+    {/* <div className="mb-4">
+      <label className="block text-sm">Penalty</label>
+      <Input type="text" name="penalty" error={errors.penalty} />
+    </div> */}
+
+    {/* <div className="mb-4">
       <label
         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
         htmlFor="plan_type"
@@ -44,7 +64,7 @@ export default ({
         value={values.plan_type}
         error={errors.plan_type}
       />
-    </div>
+    </div> */}
 
     <button
       type="submit"

@@ -75,6 +75,17 @@ class User extends React.Component {
         </div>
 
         <div className="box">
+          <ul>
+            <li>
+              Referral Profits: The amount you have received from your
+              referral's investments
+            </li>
+            <li>
+              Referral Credits: The amount you have received inviting users
+            </li>
+          </ul>
+        </div>
+        <div className="box">
           {data.length > 0 ? (
             <div className="w-full overflow-hidden rounded-lg shadow-xs border-gray-500">
               <div className="w-full overflow-x-auto">
@@ -84,6 +95,8 @@ class User extends React.Component {
                       <th className="text-left w-8">#</th>
                       <th className="text-left">User Name</th>
                       <th className="text-center">#Active Referrals</th>
+                      <th className="text-center">#Referral Credits</th>
+                      <th className="text-center">#Referral Profits</th>
                       <th className="text-center">#Assets</th>
                       <th className="flex items-center justify-end">Edit</th>
                     </tr>
@@ -141,8 +154,12 @@ const TableRow = (props) => {
     <tr>
       <td className="font-semibold">{rowNumber}</td>
       <td className="text-left font-semibold">{item.email}</td>
-      <td className='text-center'>{item.active_referrals}</td>
-      <td className='text-center'>{item.asset_count}</td>
+      <td className="text-center">
+        ({`${item.active_referrals} of ${item.referrals?.length}`})
+      </td>
+      <td className="text-center">{item.referral_credits?.toFixed(2)}</td>
+      <td className="text-center">{item.referral_profits?.toFixed(2)}</td>
+      <td className="text-center">{item.asset_count}</td>
       <td className="flex items-center justify-end">
         <a className="edit-btn" onClick={() => props.handleEdit(item.id)}>
           <BiEdit />

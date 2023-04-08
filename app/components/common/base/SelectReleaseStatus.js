@@ -20,7 +20,7 @@ class SelectReleaseStatus extends Component {
   }
 
   handleChange = (e) => {
-    this.props.onChange(e ? e.label : undefined);
+    this.props.onChange(e ? e.value : undefined);
   };
 
   render() {

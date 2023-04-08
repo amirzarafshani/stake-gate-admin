@@ -19,7 +19,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Layout from 'components/common/layout/Layout';
 import Sliders from 'containers/Sliders/Loadable';
 import Plans from 'containers/Plans/Loadable';
-import ReferralRates from 'containers/ReferralRates/Loadable';
+// import ReferralRates from 'containers/ReferralRates/Loadable';
 import Assets from 'containers/Assets/Loadable';
 import Releases from 'containers/Releases/Loadable';
 
@@ -62,24 +62,24 @@ function App(props) {
             component={User}
             user={props.user}
           />
-          <PrivateRoute
+          {/* <PrivateRoute
             exact
             path="/dashboard/Sliders"
             component={Sliders}
             user={props.user}
-          />
+          /> */}
           <PrivateRoute
             exact
             path="/dashboard/Plans"
             component={Plans}
             user={props.user}
           />
-          <PrivateRoute
+          {/* <PrivateRoute
             exact
             path="/dashboard/ReferralRates"
             component={ReferralRates}
             user={props.user}
-          />
+          /> */}
           <PrivateRoute
             exact
             path="/dashboard/Assets"

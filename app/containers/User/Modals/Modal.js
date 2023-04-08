@@ -4,6 +4,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import Slide from '@material-ui/core/Slide';
 import Assets from '../Tabs/Assets';
 import Releases from '../Tabs/Releases';
+import Transactions from '../Tabs/Transactions';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -35,10 +36,11 @@ const Modal = (props) => {
             {tabTitles.map((item, index) => (
               <a
                 key={`user-modal-tabs-${item}`}
-                className={`disabled:!bg-gray-300 disabled:cursor-default overflow-hidden relative outline-none focus:outline-none bg-primary shadow-lg rounded-md px-1 md:px-5 py-0 md:py-2 cursor-pointer m-0.5 hover:bg-primary-dark whitespace-nowrap text-sm md:text-base ${tab === index
-                  ? 'bg-secondary text-white hover:bg-secondary cursor-default'
-                  : ''
-                  }`}
+                className={`disabled:!bg-gray-300 disabled:cursor-default overflow-hidden relative outline-none focus:outline-none bg-primary shadow-lg rounded-md px-1 md:px-5 py-0 md:py-2 cursor-pointer m-0.5 hover:bg-primary-dark whitespace-nowrap text-sm md:text-base ${
+                  tab === index
+                    ? 'bg-secondary text-white hover:bg-secondary cursor-default'
+                    : ''
+                }`}
                 onClick={() => setTab(index)}
               >
                 {item}
@@ -49,6 +51,7 @@ const Modal = (props) => {
 
         {tab === 0 && <Assets id={id} />}
         {tab === 1 && <Releases id={id} />}
+        {tab === 2 && <Transactions id={id} />}
       </DialogContent>
     </Dialog>
   );
@@ -56,7 +59,4 @@ const Modal = (props) => {
 
 export default Modal;
 
-const tabTitles = [
-  'Assets',
-  'Releases',
-];
+const tabTitles = ['Assets', 'Releases', 'Transactions'];

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import releasesService from '../../../services/releasesService';
+import transactionsService from '../../../services/transactionsService';
 import withAuth from '../../../components/redux/providers/withAuth';
 import ReleaseModal from '../../Releases/Modals/ReleaseModal';
 import Pagination from '../../../components/common/base/Pagination';
-import ReleaseStatusSelect from '../../Releases/components/ReleaseStatusSelect';
+import TransactionStatusSelect from '../../Releases/components/TransactionStatusSelect';
 import { BiEdit } from 'react-icons/bi';
 
-export const Releases = (props) => {
+export const Transactions = (props) => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
@@ -23,8 +23,8 @@ export const Releases = (props) => {
   const getData = () => {
     setLoading(true);
 
-    let params = `?status=${selectedStatus}&page=${page}&page_size=${pageSize}&user_id=${props.id}`;
-    releasesService
+    let params = `?page=${page}&page_size=${pageSize}&user_id=${props.id}`;
+    transactionsService
       .getAll(params)
       .then((res) => {
         console.log(res.data.items);
@@ -63,13 +63,13 @@ export const Releases = (props) => {
   return (
     <div className="flex flex-col">
       <div className="page-title-container">
-        <span className="page-title">Releases</span>
+        <span className="page-title">Transactions</span>
       </div>
 
-      <ReleaseStatusSelect
+      {/* <TransactionStatusSelect
         value={selectedStatus}
         onChange={handleChangeStatus}
-      />
+      /> */}
 
       <div className="box">
         {data && data.length > 0 ? (
@@ -80,12 +80,10 @@ export const Releases = (props) => {
                   <tr>
                     <th className="text-left w-8">#</th>
                     <th className="text-[#EABA4C] text-center">Status</th>
-                    <th className="text-[#EABA4C] text-left">Amount</th>
-                    <th className="text-[#EABA4C] text-left">Total Amount</th>
-                    <th className="text-[#EABA4C] text-center">Plan</th>
-                    <th className="text-[#EABA4C] text-center">Staked At</th>
+                    <th className="text-[#EABA4C] text-left">Description</th>
+                    <th className="text-[#EABA4C] text-center">Date</th>
                     <th className="text-[#EABA4C] text-center">User</th>
-                    <th className="flex items-center justify-end">Edit</th>
+                    {/* <th className="flex items-center justify-end">Edit</th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -127,7 +125,7 @@ export const Releases = (props) => {
   );
 };
 
-export default withAuth(Releases);
+export default withAuth(Transactions);
 
 const ReleaseRow = (props) => {
   const { item, index, handleEdit } = props;
@@ -136,17 +134,15 @@ const ReleaseRow = (props) => {
     <tr>
       <td className="font-semibold">{index + 1}</td>
       <td className="text-center">{item.status}</td>
-      <td className="text-left font-semibold">{item.amount}</td>
-      <td className="text-left font-semibold">{item.total_amount}</td>
-      <td className="text-center">{item.plan?.name}</td>
-      <td className="text-center">{item.staked_at}</td>
-      <td className="text-center">{item.user?.email}</td>
+      <td className="text-left font-semibold">{item.description}</td>
+      <td className="text-center">{item.created_at}</td>
+      <td className="text-center">{item.user_email}</td>
 
-      <td className="flex items-center justify-end">
+      {/* <td className="flex items-center justify-end">
         <a className="edit-btn" onClick={handleEdit}>
           <BiEdit />
         </a>
-      </td>
+      </td> */}
     </tr>
   );
 };
