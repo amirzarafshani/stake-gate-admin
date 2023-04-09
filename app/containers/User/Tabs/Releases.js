@@ -136,8 +136,8 @@ const ReleaseRow = (props) => {
     <tr>
       <td className="font-semibold">{index + 1}</td>
       <td className="text-center">{item.status}</td>
+      <td className="text-left font-semibold">{item.asset?.amount}</td>
       <td className="text-left font-semibold">{item.amount}</td>
-      <td className="text-left font-semibold">{item.total_amount}</td>
       <td className="text-center">{item.plan?.name}</td>
       <td className="text-center">{item.staked_at}</td>
       <td className="text-center">{item.user?.email}</td>

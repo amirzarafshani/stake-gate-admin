@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import assetsServicce from '../../../services/assetsService';
-import withAuth from '../../../components/redux/providers/withAuth';
-import AssetModal from '../../Assets/Modals/AssetModal';
-import Pagination from '../../../components/common/base/Pagination';
-import AssetStatusSelect from '../../Assets/components/AssetStatusSelect';
+import transactionsService from '../../services/transactionsService';
+import withAuth from '../../components/redux/providers/withAuth';
+// import TransactionModal from './Modals/TransactionModal';
+import Pagination from '../../components/common/base/Pagination';
+import TransactionStatusSelect from './components/TransactionStatusSelect';
 import { BiEdit } from 'react-icons/bi';
 
-export const Assets = (props) => {
+export const Transactions = (params) => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
@@ -23,8 +23,8 @@ export const Assets = (props) => {
   const getData = () => {
     setLoading(true);
 
-    let params = `?status=${selectedStatus}&page=${page}&page_size=${pageSize}&user_id=${props.id}`;
-    assetsServicce
+    let params = `?status=${selectedStatus}&page=${page}&page_size=${pageSize}`;
+    transactionsService
       .getAll(params)
       .then((res) => {
         console.log(res.data.items);
@@ -63,10 +63,13 @@ export const Assets = (props) => {
   return (
     <div className="flex flex-col">
       <div className="page-title-container">
-        <span className="page-title">Assets</span>
+        <span className="page-title">Transactions</span>
       </div>
 
-      <AssetStatusSelect value={selectedStatus} onChange={handleChangeStatus} />
+      <TransactionStatusSelect
+        value={selectedStatus}
+        onChange={handleChangeStatus}
+      />
 
       <div className="box">
         {data && data.length > 0 ? (
@@ -77,19 +80,14 @@ export const Assets = (props) => {
                   <tr>
                     <th className="text-left w-8">#</th>
                     <th className="text-[#EABA4C] text-center">Status</th>
-                    <th className="text-[#EABA4C] text-left">Amount</th>
-                    <th className="text-[#EABA4C] text-center">Plan</th>
-                    <th className="text-[#EABA4C] text-center">Staked At</th>
+                    <th className="text-[#EABA4C] text-left">Description</th>
+                    <th className="text-[#EABA4C] text-center">Date</th>
                     <th className="text-[#EABA4C] text-center">User</th>
-                    <th className="text-[#EABA4C] text-center">
-                      Investment Days
-                    </th>
-                    <th className="flex items-center justify-end">Edit</th>
                   </tr>
                 </thead>
                 <tbody>
                   {data.map((item, index) => (
-                    <AssetRow
+                    <TransactionRow
                       key={`assets-table-item-${index}`}
                       item={item}
                       index={index}
@@ -116,36 +114,34 @@ export const Assets = (props) => {
           </span>
         )}
       </div>
-      <AssetModal
+      {/* <TransactionModal
         open={itemModalShow}
         data={selectedItem}
         onClose={handleCloseModal}
         onCloseAndReload={handleCloseModalAndReload}
-      />
+      /> */}
     </div>
   );
 };
 
-export default withAuth(Assets);
+export default withAuth(Transactions);
 
-const AssetRow = (props) => {
+const TransactionRow = (props) => {
   const { item, index, handleEdit } = props;
 
   return (
     <tr>
       <td className="font-semibold">{index + 1}</td>
       <td className="text-center">{item.status}</td>
-      <td className="text-left font-semibold">{item.amount}</td>
-      <td className="text-center">{item.plan?.name}</td>
-      <td className="text-center">{item.staked_at}</td>
-      <td className="text-center">{item.user?.email}</td>
-      <td className="text-center">{item.investment_days}</td>
+      <td className="text-left font-semibold">{item.description}</td>
+      <td className="text-center">{item.created_at}</td>
+      <td className="text-center">{item.user_email}</td>
 
-      <td className="flex items-center justify-end">
+      {/* <td className="flex items-center justify-end">
         <a className="edit-btn" onClick={handleEdit}>
           <BiEdit />
         </a>
-      </td>
+      </td> */}
     </tr>
   );
 };

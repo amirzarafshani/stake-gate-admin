@@ -17,7 +17,7 @@ import User from 'containers/User/Loadable';
 import Login from 'containers/Login/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Layout from 'components/common/layout/Layout';
-import Sliders from 'containers/Sliders/Loadable';
+import Transactions from 'containers/Transactions/Loadable';
 import Plans from 'containers/Plans/Loadable';
 // import ReferralRates from 'containers/ReferralRates/Loadable';
 import Assets from 'containers/Assets/Loadable';
@@ -84,6 +84,12 @@ function App(props) {
             exact
             path="/dashboard/Assets"
             component={Assets}
+            user={props.user}
+          />
+          <PrivateRoute
+            exact
+            path="/dashboard/Transactions"
+            component={Transactions}
             user={props.user}
           />
           <PrivateRoute

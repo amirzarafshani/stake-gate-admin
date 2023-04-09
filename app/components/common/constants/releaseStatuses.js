@@ -1,6 +1,6 @@
 var releaseStatuses = [
   { label: 'pending', value: 0 },
-  { label: 'done', value: 1 },
+  { label: 'confirmed', value: 1 },
   { label: 'rejected', value: 2 },
 ];
 
