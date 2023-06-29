@@ -22,6 +22,7 @@ import Plans from 'containers/Plans/Loadable';
 // import ReferralRates from 'containers/ReferralRates/Loadable';
 import Assets from 'containers/Assets/Loadable';
 import Releases from 'containers/Releases/Loadable';
+import Setting from 'containers/Setting/Loadable';
 
 import '../../components/common/styles/tailwind.scss';
 import '../../components/common/styles/main.scss';
@@ -54,6 +55,12 @@ function App(props) {
             exact
             path="/dashboard"
             component={Dashboard}
+            user={props.user}
+          />
+          <PrivateRoute
+            exact
+            path="/dashboard/setting"
+            component={Setting}
             user={props.user}
           />
           <PrivateRoute
