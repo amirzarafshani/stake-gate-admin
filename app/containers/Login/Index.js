@@ -58,7 +58,7 @@ const Login = (props) => {
           <div className="h-32 md:h-auto md:w-1/2">
             <img
               className="object-cover w-full h-full"
-              src="https://source.unsplash.com/user/erondu/1600x900"
+              src="https://images.pexels.com/photos/6771665/pexels-photo-6771665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="img"
             />
           </div>
